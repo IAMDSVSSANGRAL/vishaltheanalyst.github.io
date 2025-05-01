@@ -1986,52 +1986,67 @@ input, select, textarea {
 
 /* Wrappers */
 
-	.wrapper {
-		background-image: url("images/bg.png");
-		box-shadow: inset 0px 1px 0px 0px rgba(0, 0, 0, 0.05), inset 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
-		padding: 8em 0 8em 0;
-		text-align: center;
-	}
+.wrapper {
+	background-image: url("images/bg.png");
+	box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.03), inset 0px 2px 4px rgba(0, 0, 0, 0.06);
+	padding: 4em 1em;
+	text-align: center;
+}
 
-		.wrapper.style1 {
-			background-image: none;
-			background-color: #fff;
-		}
+/* Style 1: Clean White */
+.wrapper.style1 {
+	background-image: none;
+	background-color: #ffffff;
+	color: #222;
+	text-shadow: none;
+}
 
-		.wrapper.style2 {
-			background-color: #fafafa;
-			text-shadow: 1px 1px 0px #fff;
-		}
+/* Style 2: Light Gray Background */
+.wrapper.style2 {
+	background-color: #f9f9f9;
+	color: #333;
+	text-shadow: none;
+}
 
-		.wrapper.style3 {
-			background-color: #f4f4f4;
-			text-shadow: 1px 1px 0px #fff;
-		}
+/* Style 3: Soft Gray */
+.wrapper.style3 {
+	background-color: #f0f0f0;
+	color: #333;
+	text-shadow: none;
+}
 
-		.wrapper.style4 {
-			background-color: #303030;
-			color: #999;
-			text-shadow: -1px -1px 0px #181818;
-		}
+/* Style 4: Dark Mode */
+.wrapper.style4 {
+	background-color: #2e2e2e;
+	color: #ccc;
+	text-shadow: none;
+}
 
-			.wrapper.style4 h1, .wrapper.style4 h2, .wrapper.style4 h3, .wrapper.style4 h4, .wrapper.style4 h5, .wrapper.style4 h6 {
-				color: #fff;
-			}
+.wrapper.style4 h1,
+.wrapper.style4 h2,
+.wrapper.style4 h3,
+.wrapper.style4 h4,
+.wrapper.style4 h5,
+.wrapper.style4 h6 {
+	color: #fff;
+}
 
-			.wrapper.style4 form input[type=text],
-			.wrapper.style4 form input[type=password],
-			.wrapper.style4 form select,
-			.wrapper.style4 form textarea {
-				border: none;
-				background: #282828;
-			}
+.wrapper.style4 form input[type="text"],
+.wrapper.style4 form input[type="password"],
+.wrapper.style4 form select,
+.wrapper.style4 form textarea {
+	border: none;
+	background: #3a3a3a;
+	color: #fff;
+}
 
-				.wrapper.style4 form input[type=text]:focus,
-				.wrapper.style4 form input[type=password]:focus,
-				.wrapper.style4 form select:focus,
-				.wrapper.style4 form textarea:focus {
-					background: #252525;
-				}
+.wrapper.style4 form input[type="text"]:focus,
+.wrapper.style4 form input[type="password"]:focus,
+.wrapper.style4 form select:focus,
+.wrapper.style4 form textarea:focus {
+	background: #444;
+}
+
 
 /* Nav */
 
