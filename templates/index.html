@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="intro">
+  <div class="intro-container">
+    <img src="{{ url_for('static', filename='images/yourphoto.svg') }}" class="profile-pic" alt="Vishal Photo">
+    <h1>Hi, I'm <span class="gold">Vishal Singh Sangral</span></h1>
+    <p class="lead">Data Analyst • ML Enthusiast • Builder — I build data products, dashboards, and solutions that help teams make smarter decisions.</p>
+  </div>
+</section>
+
+<section class="timeline">
+  <h2 class="section-title">My Journey So Far 👑</h2>
+  <div class="timeline-wrapper">
+    <div class="timeline-ladder"></div>
+    <div class="timeline-items">
+      <div class="timeline-item">
+        <div class="time">1998</div>
+        <div class="desc"><strong>Born</strong><p>Humble beginnings — the journey starts.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2020</div>
+        <div class="desc"><strong>Graduated</strong><p>Completed degree and dove into data & programming.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2022</div>
+        <div class="desc"><strong>Havinosh</strong><p>Co-founded Havinosh — handled operations and analytics.</p></div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2024</div>
+        <div class="desc"><strong>Nathabit</strong><p>Tech Data Analyst — NLP & product analytics.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

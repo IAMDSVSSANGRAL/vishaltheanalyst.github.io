@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="section contact-section">
+  <h2 class="section-title">Contact Me</h2>
+  {% if saved == 'true' %}
+    <div class="notice success">Thank you! Your message was submitted.</div>
+  {% elif saved == 'fallback' %}
+    <div class="notice warning">Saved locally (DB not configured). Replace .env with DB creds to store in Postgres.</div>
+  {% endif %}
+  <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</section>
+{% endblock %}
