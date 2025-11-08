@@ -1,7 +1,10 @@
-CREATE TABLE IF NOT EXISTS leads (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(150),
-    email VARCHAR(150),
-    message TEXT,
-    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE leads (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  email TEXT,
+  user_type TEXT,
+  company TEXT,
+  message TEXT,
+  extra_info TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

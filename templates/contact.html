@@ -1,16 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="section contact-section">
-  <h2 class="section-title">Contact Me</h2>
+  <h2 class="section-title">Get in Touch / Collaborate</h2>
   {% if saved == 'true' %}
     <div class="notice success">Thank you! Your message was submitted.</div>
   {% elif saved == 'fallback' %}
     <div class="notice warning">Saved locally (DB not configured). Replace .env with DB creds to store in Postgres.</div>
   {% endif %}
-  <form method="POST" action="{{ url_for('contact') }}" class="contact-form">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+
+  <form method="POST" action="{{ url_for('contact') }}" class="contact-form" id="leadForm">
+    <input type="text" name="name" placeholder="Your Full Name" required>
+    <input type="email" name="email" placeholder="Your Email Address" required>
+
+    <label for="user_type" class="gold">I am a...</label>
+    <select name="user_type" id="user_type" required>
+      <option value="">Select One</option>
+      <option value="Recruiter">Recruiter</option>
+      <option value="Client">Client</option>
+      <option value="Student">Student</option>
+    </select>
+
+    <!-- Recruiter Fields -->
+    <div class="recruiter-fields hidden">
+      <input type="text" name="company" placeholder="Company Name">
+      <input type="text" name="role" placeholder="Your Role (e.g. HR, Hiring Manager)">
+      <textarea name="position" rows="2" placeholder="Hiring for which position?"></textarea>
+    </div>
+
+    <!-- Client Fields -->
+    <div class="client-fields hidden">
+      <input type="text" name="company_brand" placeholder="Company Name or Brand">
+      <textarea name="project_desc" rows="3" placeholder="Briefly describe your project"></textarea>
+      <input type="text" name="budget" placeholder="Estimated Budget Range (e.g. ₹50k - ₹1L)">
+    </div>
+
+    <!-- Student Fields -->
+    <div class="student-fields hidden">
+      <textarea name="learning_goal" rows="2" placeholder="What do you want to learn or discuss?"></textarea>
+      <input type="text" name="level" placeholder="Your current level (Beginner / Intermediate / Advanced)">
+    </div>
+
+    <!-- Common -->
+    <textarea name="message" rows="3" placeholder="Additional message (optional)"></textarea>
+
     <button type="submit" class="btn">Send Message</button>
   </form>
 </section>
