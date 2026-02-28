@@ -1,83 +1,72 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="section contact-section">
-  <div class="contact-container">
+  <h2 class="section-title">Let’s Connect</h2>
 
-    <h2 class="section-title">Let’s Connect & Collaborate</h2>
-    <p class="section-subtitle">
-      Recruiter, Client, or Student — I’d love to hear from you.
-    </p>
+  {% if saved == 'true' %}
+    <div class="notice success">Message sent successfully 🚀</div>
+  {% elif saved == 'fallback' %}
+    <div class="notice warning">Saved locally. Configure DB for full storage.</div>
+  {% endif %}
 
-    {% if saved == 'true' %}
-      <div class="alert alert-success">
-        ✅ Thank you! Your message has been submitted successfully.
-      </div>
-    {% elif saved == 'fallback' %}
-      <div class="alert alert-warning">
-        ⚠️ Saved locally. Configure PostgreSQL in .env to enable database storage.
-      </div>
-    {% endif %}
+  <form method="POST" action="{{ url_for('contact') }}" class="contact-form" id="leadForm">
 
-    <form method="POST" action="{{ url_for('contact') }}" class="contact-form" id="leadForm">
-
-      <!-- Basic Info -->
-      <div class="form-row">
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" name="name" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="Enter your email" required>
-        </div>
-      </div>
-
-      <!-- User Type -->
+    <!-- BASIC INFO -->
+    <div class="form-grid">
       <div class="form-group">
-        <label>I am a...</label>
-        <select name="user_type" id="user_type" required>
-          <option value="">Select your category</option>
-          <option value="Recruiter">Recruiter</option>
-          <option value="Client">Client</option>
-          <option value="Student">Student</option>
-        </select>
+        <label>Full Name</label>
+        <input type="text" name="name" placeholder="Your Full Name" required>
       </div>
 
-      <!-- Recruiter Fields -->
-      <div class="conditional-fields recruiter-fields hidden">
-        <h4 class="form-section-title">Recruiter Details</h4>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Your Email Address" required>
+      </div>
+    </div>
+
+    <!-- USER TYPE -->
+    <div class="form-group">
+      <label>I am a...</label>
+      <select name="user_type" id="user_type" required>
+        <option value="">Select One</option>
+        <option value="Recruiter">Recruiter</option>
+        <option value="Client">Client</option>
+        <option value="Student">Student</option>
+      </select>
+    </div>
+
+    <!-- RECRUITER -->
+    <div class="conditional-fields recruiter-fields hidden">
+      <div class="form-grid">
         <input type="text" name="company" placeholder="Company Name">
-        <input type="text" name="role" placeholder="Your Role (HR / Hiring Manager)">
-        <textarea name="position" rows="2" placeholder="Position you’re hiring for"></textarea>
+        <input type="text" name="role" placeholder="Your Role">
       </div>
+      <textarea name="position" rows="2" placeholder="Hiring for which position?"></textarea>
+    </div>
 
-      <!-- Client Fields -->
-      <div class="conditional-fields client-fields hidden">
-        <h4 class="form-section-title">Project Details</h4>
+    <!-- CLIENT -->
+    <div class="conditional-fields client-fields hidden">
+      <div class="form-grid">
         <input type="text" name="company_brand" placeholder="Company / Brand Name">
-        <textarea name="project_desc" rows="3" placeholder="Brief project description"></textarea>
-        <input type="text" name="budget" placeholder="Estimated Budget (₹50k - ₹1L)">
+        <input type="text" name="budget" placeholder="Estimated Budget">
       </div>
+      <textarea name="project_desc" rows="3" placeholder="Brief project description"></textarea>
+    </div>
 
-      <!-- Student Fields -->
-      <div class="conditional-fields student-fields hidden">
-        <h4 class="form-section-title">Learning Details</h4>
-        <textarea name="learning_goal" rows="2" placeholder="What would you like to learn or discuss?"></textarea>
-        <input type="text" name="level" placeholder="Current Level (Beginner / Intermediate / Advanced)">
+    <!-- STUDENT -->
+    <div class="conditional-fields student-fields hidden">
+      <div class="form-grid">
+        <input type="text" name="level" placeholder="Your Level (Beginner / Intermediate)">
       </div>
+      <textarea name="learning_goal" rows="3" placeholder="What do you want to learn or discuss?"></textarea>
+    </div>
 
-      <!-- Common Message -->
-      <div class="form-group">
-        <label>Additional Message (Optional)</label>
-        <textarea name="message" rows="3" placeholder="Anything else you'd like to add?"></textarea>
-      </div>
+    <!-- COMMON MESSAGE -->
+    <textarea name="message" rows="3" placeholder="Additional Message (Optional)"></textarea>
 
-      <div class="form-action">
-        <button type="submit" class="btn-primary">Send Message</button>
-      </div>
+    <button type="submit" class="btn-primary">Send Message</button>
 
-    </form>
-  </div>
+  </form>
 </section>
+
 {% endblock %}
